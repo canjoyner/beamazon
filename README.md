@@ -1,1 +1,1 @@
-# beamazone
+# beamazon
