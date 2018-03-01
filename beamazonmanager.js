@@ -83,6 +83,9 @@ function lowInventory(){
 
 function addInventory(){
 	console.log("this function not yet avaliable")
+
+// below is my attempt at the code for adding inventory
+
 	// connection.query("Select * FROM products",function(err,res){
 	// 	if (err) throw err;
 

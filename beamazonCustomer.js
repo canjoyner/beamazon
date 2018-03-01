@@ -1,7 +1,7 @@
 var mysql = require ("mysql");
 var inquirer = require("inquirer");
 var amazon=[];
-
+ 
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -50,18 +50,21 @@ function buySomething(){
 			if (amazon[pick].stock_quantity < pickQuan ){
 				console.log("Your item is on backorder.");}
 			else {
+
+
 				var current = amazon[pick].stock_quantity;
+				var newQuan = current - pickQuan;
 				var query = connection.query(
-					"Update products SET ? where? ",
+					"Update products SET ? WHERE? ",
 					[
 						{
-							stock_quantity: current - pickQuan 
+							stock_quantity: newQuan 
 						},
 						{
 							item_ID:pick
 						}
 					],function(err,res) {
-
+						var total = amazon[pick].price * pickQuan;
 					}
 					);
 				var total = amazon[pick].price * pickQuan;
